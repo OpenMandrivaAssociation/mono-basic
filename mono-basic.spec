@@ -1,5 +1,5 @@
 %define name mono-basic
-%define version 1.2.3.1
+%define version 1.2.4
 %define release %mkrel 1
 
 Summary: Visual Basic .NET support for Mono
@@ -11,7 +11,7 @@ License: BSD
 Group: Development/Other
 URL:		http://www.go-mono.com/ 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: mono-devel >= 1.2.3
+BuildRequires: mono-devel >= 1.2.4
 BuildRequires: locales
 BuildArch: noarch
 
@@ -39,7 +39,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README
 %_bindir/vbnc
-%_prefix/lib/mono/2.0/extract-source.exe*
 %_prefix/lib/mono/2.0/vbnc*
 %_prefix/lib/mono/gac/Microsoft.VisualBasic/
 %_prefix/lib/mono/2.0/Microsoft.VisualBasic.dll
