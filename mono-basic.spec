@@ -10,7 +10,6 @@ Source0: http://www.go-mono.com/sources/%name/%{name}-%{version}.tar.bz2
 License: BSD
 Group: Development/Other
 URL:		http://www.go-mono.com/ 
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: mono-devel >= 1.2.5
 BuildRequires: locales
 BuildArch: noarch
