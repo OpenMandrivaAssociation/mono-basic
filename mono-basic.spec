@@ -1,5 +1,5 @@
 %define name mono-basic
-%define version 2.0
+%define version 2.2
 %define release %mkrel 1
 
 Summary: Visual Basic .NET support for Mono
@@ -7,9 +7,6 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://www.go-mono.com/sources/%name/%{name}-%{version}.tar.bz2
-#gw add file missing from the tarball
-Patch: mono-basic-2.0-missing.patch
-Patch1: mono-basic-2.0-version.patch
 License: BSD
 Group: Development/Other
 URL:		http://www.go-mono.com/ 
@@ -25,8 +22,6 @@ assemblies.
 
 %prep
 %setup -q -n %name-%version
-%patch -p1
-%patch1 -p1
 
 %build
 export LC_ALL=UTF-8
@@ -44,6 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README
 %_bindir/vbnc
+%_mandir/man1/vbnc.1*
 %_prefix/lib/mono/2.0/vbnc*
 %_prefix/lib/mono/gac/Microsoft.VisualBasic/
 %_prefix/lib/mono/2.0/Microsoft.VisualBasic.dll
