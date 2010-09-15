@@ -1,6 +1,6 @@
 %define name mono-basic
 %define version 2.6.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Visual Basic .NET support for Mono
 Name: %{name}
@@ -22,6 +22,13 @@ assemblies.
 
 %prep
 %setup -q -n %name-%version
+#gw rename source file with parenthesis
+cd vbnc/vbnc
+sed -i -e "s^(^^" -e "s^)^^" vbnc.exe.sources
+for x in source/Parser/Parser\(*.vb;do
+  mv "$x" $(echo "$x" | sed -e "s^(^^" -e "s^)^^")
+done
+
 
 %build
 export LC_ALL=UTF-8
