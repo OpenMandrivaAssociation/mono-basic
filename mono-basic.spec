@@ -1,6 +1,6 @@
 %define name mono-basic
 %define version 2.10
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Visual Basic .NET support for Mono
 Name: %{name}
@@ -20,6 +20,17 @@ This package contains the Visual Basic .NET compiler and language
 runtime. This allows you to compile and run VB.NET application and
 assemblies.
 
+%package 2.0
+Summary: Visual Basic .NET support for Mono 2.0 API
+Group: Development/Other
+Requires: %{name} = %{version}-%{release}
+Conflicts: %{name} < 2.10-2
+
+%description 2.0
+This package contains the Visual Basic .NET compiler and language
+runtime under 2.0 API. This allows you to compile and run VB.NET
+application and assemblies.
+
 %prep
 %setup -q -n %name-%version
 
@@ -38,18 +49,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc README
-%_bindir/vbnc
-%_bindir/vbnc2
-%_mandir/man1/vbnc.1*
-%_prefix/lib/mono/4.0/vbnc*
-%_prefix/lib/mono/gac/Microsoft.VisualBasic/
-%_prefix/lib/mono/2.0/Microsoft.VisualBasic.dll
-%_prefix/lib/mono/4.0/Microsoft.VisualBasic.dll
-%_prefix/lib/mono/gac/Mono.Cecil.VB.Mdb
-%_prefix/lib/mono/4.0/Mono.Cecil.VB.Mdb.dll
-%_prefix/lib/mono/gac/Mono.Cecil.VB.Pdb
-%_prefix/lib/mono/4.0/Mono.Cecil.VB.Pdb.dll
-%_prefix/lib/mono/gac/Mono.Cecil.VB
-%_prefix/lib/mono/4.0/Mono.Cecil.VB.dll
+%{_bindir}/*
+%{_prefix}/lib/mono/4.0/*
+%{_prefix}/lib/mono/gac/Microsoft.VisualBasic/10.0.0.0*
+%{_prefix}/lib/mono/gac/Mono.Cecil.VB.Mdb/0.9.3.0*
+%{_prefix}/lib/mono/gac/Mono.Cecil.VB.Pdb/0.9.3.0*
+%{_prefix}/lib/mono/gac/Mono.Cecil.VB/0.9.3.0*
+%{_mandir}/man1/vbnc.1*
 
-
+%files 2.0
+%defattr(-,root,root)
+%{_prefix}/lib/mono/2.0/*
+%{_prefix}/lib/mono/gac/Microsoft.VisualBasic/8.0.0.0*
