@@ -1,6 +1,6 @@
 %define name mono-basic
 %define version 2.10
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: Visual Basic .NET support for Mono
 Name: %{name}
