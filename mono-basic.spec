@@ -11,6 +11,11 @@ License: BSD
 Group: Development/Other
 URL:		https://www.go-mono.com/ 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: mono-devel >= 2.10
 BuildRequires: locales
 BuildArch: noarch
